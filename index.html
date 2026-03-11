@@ -6,16 +6,27 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Envelope container -->
+  <!-- Envelope -->
   <div class="envelope" id="envelope">
     <div class="flap"></div>
     <span class="envelope-text">Open me</span>
     <div class="heart">❤️</div>
   </div>
 
-  <!-- Card that appears after opening envelope -->
+  <!-- Card -->
   <div class="card" id="card">
-    <p id="card-text">Happy Birthday Mum! 🎉 Love you so much ❤️</p>
+    <div class="card-front">
+      <p>Click to open the card!</p>
+    </div>
+    <div class="card-back">
+      <p>Happy Birthday Mum! 🎉<br>Love you so much ❤️</p>
+      <div class="confetti-container" id="confetti"></div>
+      <div class="photos">
+        <img src="https://i.imgur.com/1.jpg" class="photo" alt="Photo 1">
+        <img src="https://i.imgur.com/2.jpg" class="photo" alt="Photo 2">
+        <img src="https://i.imgur.com/3.jpg" class="photo" alt="Photo 3">
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
