@@ -1,4 +1,4 @@
-/* Page setup */
+/* Body setup */
 body {
   display: flex;
   justify-content: center;
@@ -24,7 +24,6 @@ body {
   transition: all 0.5s ease;
 }
 
-/* Envelope flap - triangle */
 .flap {
   position: absolute;
   top: 0;
@@ -37,14 +36,12 @@ body {
   transition: all 0.5s ease;
 }
 
-/* Envelope text */
 .envelope-text {
   font-size: 28px;
   font-family: 'Dancing Script', cursive;
   z-index: 1;
 }
 
-/* Heart sticker */
 .heart {
   position: absolute;
   top: 10px;
@@ -53,25 +50,83 @@ body {
   z-index: 2;
 }
 
-/* Card (hidden initially) */
+/* Card */
 .card {
   position: absolute;
   width: 300px;
   height: 200px;
-  background-color: #fff8dc;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 22px;
-  padding: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  transform: scale(0); /* hidden at start */
+  perspective: 1000px;
+  transform: scale(0);
   transition: transform 0.5s ease;
 }
 
-/* Card visible */
 .card.show {
   transform: scale(1);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  text-align: center;
+  background-color: #fff8dc;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card.flipped .card-front {
+  transform: rotateY(180deg);
+}
+
+.card.flipped .card-back {
+  transform: rotateY(0deg);
+}
+
+/* Photos inside card */
+.photos {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.photo:hover {
+  transform: scale(2);
+  z-index: 10;
+}
+
+/* Confetti */
+.confetti-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10px) rotate(0deg);}
+  100% { transform: translateY(220px) rotate(360deg);}
 }
