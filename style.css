@@ -1,37 +1,77 @@
-/* Page background and centering */
+/* Page setup */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #fff0f5; /* soft pink background */
+  background-color: #fff0f5;
   margin: 0;
   font-family: 'Cursive', sans-serif;
 }
 
-/* Envelope box */
+/* Envelope */
 .envelope {
-  width: 250px;
-  height: 150px;
+  position: relative;
+  width: 300px;
+  height: 200px;
   background-color: pink;
-  border-radius: 10px;
-  position: relative; /* so the heart can sit on top */
+  border-radius: 0 0 10px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer; /* makes it clear it’s clickable */
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+/* Envelope flap - triangle */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 80px solid #ffb6c1;
+  transition: all 0.5s ease;
 }
 
 /* Envelope text */
 .envelope-text {
-  font-size: 24px;
-  font-family: 'Dancing Script', cursive; /* cursive style text */
+  font-size: 28px;
+  font-family: 'Dancing Script', cursive;
+  z-index: 1;
 }
 
-/* Heart sticker in top-right corner */
+/* Heart sticker */
 .heart {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 28px;
+  font-size: 32px;
+  z-index: 2;
+}
+
+/* Card (hidden initially) */
+.card {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  background-color: #fff8dc;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 22px;
+  padding: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transform: scale(0); /* hidden at start */
+  transition: transform 0.5s ease;
+}
+
+/* Card visible */
+.card.show {
+  transform: scale(1);
 }
