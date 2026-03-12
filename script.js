@@ -7,21 +7,17 @@ const cardInside = document.getElementById("cardInside")
 
 heart.onclick = function(){
 
-// open flap
 flap.classList.add("open")
 
-// card rises
-setTimeout(()=>{
+setTimeout(function(){
 card.classList.add("show")
 },600)
 
-// envelope fades
-setTimeout(()=>{
+setTimeout(function(){
 envelope.style.opacity="0"
 },2000)
 
-// open card
-setTimeout(()=>{
+setTimeout(function(){
 openCard()
 },5000)
 
@@ -35,12 +31,10 @@ cardInside.style.display="flex"
 
 card.style.width="700px"
 
-// REAL confetti using canvas-confetti
-
 confetti({
-particleCount: 100,
-spread: 70,
-origin: { y: 0.6 }
+particleCount:100,
+spread:70,
+origin:{y:0.6}
 })
 
 }
